@@ -74,7 +74,7 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
         return xLinearScale(d.poverty);
       })
       .attr("y", function(d) {
-        return yLinearScale(d.healthcare);
+        return yLinearScale(d.healthcare)+4;
       })
       .text(function(d) {
         return d.abbr;
@@ -100,5 +100,61 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
         .text("In Poverty (%)");
 
 
-  });
+
+  // create a tooltip
+  var Tooltip = d3.select("#div_template")
+    .append("div")
+    .style("opacity", 0)
+    .attr("class", "tooltip")
+    .style("background-color", "white")
+    .style("border", "solid")
+    .style("border-width", "2px")
+    .style("border-radius", "5px")
+    .style("padding", "5px")
+
+  // Three function that change the tooltip when user hover / move / leave a cell
+  var mouseover = function(d) {
+    Tooltip
+      .style("opacity", 1)
+    d3.select(this)
+      .style("stroke", "black")
+      .style("opacity", 1)
+  }
+  var mousemove = function(d) {
+    Tooltip
+      .html("The exact value of<br>this cell is: " + d.abbr)
+      .style("left", (d3.mouse(this)[0]+70) + "px")
+      .style("top", (d3.mouse(this)[1]) + "px")
+  }
+  var mouseleave = function(d) {
+    Tooltip
+      .style("opacity", 0)
+    d3.select(this)
+      .style("stroke", "none")
+      .style("opacity", 0.8)
+  }
+
+
+  // add the squares
+  chartGroup.selectAll()
+    .data(data, function(d) {return d.attr+':'+d.poverty;})
+    .enter()
+    .append("rect")
+      .attr("x", function(d) { return x(d.poverty) })
+      .attr("y", function(d) { return y(d.healthcare) })
+      .attr("rx", 4)
+      .attr("ry", 4)
+      .attr("width",  x.bandwidth() )
+      .attr("height", y.bandwidth() )
+      .style("fill", function(d) { return myColor(d.poverty)} )
+      .style("stroke-width", 4)
+      .style("stroke", "none")
+      .style("opacity", 0.8)
+    .on("mouseover", mouseover)
+    .on("mousemove", mousemove)
+    .on("mouseleave", mouseleave)
+})
+
+
+
   
