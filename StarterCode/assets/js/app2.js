@@ -130,6 +130,9 @@ d3.csv("assets/data/data.csv").then(function(censusData, err) {
   chartGroup.append("g")
     .call(leftAxis);
 
+
+ 
+
   // append initial circles
   var circlesGroup = chartGroup.selectAll("circle")
     .data(censusData)
@@ -168,9 +171,30 @@ d3.csv("assets/data/data.csv").then(function(censusData, err) {
     .classed("axis-text", true)
     .text("Lack of Healthcare (%)");
 
+    // var circleLabels = chartGroup.selectAll(null).data(censusData).enter().append("text");
+
+    // circleLabels
+    //   .attr("x", function(d) {
+    //     return xLinearScale(d[chosenXAxis]);
+    //   })
+    //   .attr("y", function(d) {
+    //     return yLinearScale(d[chosenYAxis])+4
+    //   })
+    //   .text(function(d) {
+    //     return d.abbr;
+    //   })
+    //   .attr("font-family", "sans-serif")
+    //   .attr("font-size", "10px")
+    //   .attr("text-anchor", "middle")
+    //   .attr("fill", "white");
+
+
+
+   
+
+
   // updateToolTip function above csv import
   var circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
-
 
 
 
