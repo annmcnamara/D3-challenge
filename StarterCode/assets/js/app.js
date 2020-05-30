@@ -63,8 +63,7 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
     .attr("cx", d => xLinearScale(d.poverty))
     .attr("cy", d => yLinearScale(d.healthcare))
     .attr("r", "10")
-    .attr("fill", "blue")
-    .attr("opacity", ".99");
+    .attr("class", "stateCircle" )
 
     // create circle labels. 
     var circleLabels = chartGroup.selectAll(null).data(censusData).enter().append("text");
@@ -79,10 +78,8 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
       .text(function(d) {
         return d.abbr;
       })
-      .attr("font-family", "sans-serif")
-      .attr("font-size", "10px")
-      .attr("text-anchor", "middle")
-      .attr("fill", "white");
+      .attr("class", "stateText")
+      .attr("font-size", "10px");
 
 
     // Create axes labels
