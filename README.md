@@ -2,6 +2,9 @@
 
 ![Newsroom](https://media.giphy.com/media/YfRc9QhF2lBMQ/giphy.gif)
 
+## NOTE
+I left the `app2.py` which includes the bonus in the index.html.  To see the first part of the homework simply change `app2.py` to `app.py` and it will show the static chart. 
+
 ## Background
 
 The task for this project is to analyze the current trends shaping people's lives, as well as creating charts, graphs, and interactive elements to help readers understand your findings.
@@ -32,7 +35,7 @@ Using the D3 techniques, scatter plot was created that represents each state wit
 
 ### Bonus: Impress the Boss 
 
-Why make a static graphic when D3 lets you interact with your data?
+D3 lets you interact with your data. 
 
 ![7-animated-scatter](Images/chart2.png)
 
