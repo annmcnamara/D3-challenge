@@ -1,6 +1,6 @@
 # D3 Homework - Data Journalism and D3
 
-![Newsroom](https://media.giphy.com/media/YfRc9QhF2lBMQ/giphy.gif)
+![Newsroom](https://media.giphy.com/media/7vfhdCIn13zm8/giphy.gif)
 
 ## NOTE
 I left the `app2.py` which includes the bonus in the index.html.  To see the first part of the homework simply change `app2.py` to `app.py` and it will show the static chart. 
